@@ -3,565 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graceful Growth Daycare | A Safe, Loving Space</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#fffaf1">
+    <meta name="description" content="A safe, loving daycare in Greatwall Gardens, offering flexible childcare and a nurturing place for children aged 9 months and above to learn and grow.">
+    <title>Graceful Growth Daycare | A little care goes a long way</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- CSS Variables --- */
-        :root {
-            --primary-yellow: #FFD166;
-            --secondary-white: #FFFFFF;
-            --accent-blue: #118AB2;
-            --text-dark: #2B2D42;
-            --light-bg: #F8F9FA;
-            --soft-radius: 20px;
-        }
-
-        /* --- Global Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Navigation --- */
-        header {
-            background-color: var(--secondary-white);
-            padding: 15px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-yellow);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--accent-blue);
-        }
-
-        /* --- Buttons --- */
-        .btn {
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-yellow);
-            color: var(--text-dark);
-            box-shadow: 0 4px 10px rgba(255, 209, 102, 0.4);
-        }
-
-        .btn-accent {
-            background-color: var(--accent-blue);
-            color: var(--secondary-white);
-            box-shadow: 0 4px 10px rgba(17, 138, 178, 0.4);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
-
-        /* --- Sections Layout --- */
-        section {
-            padding: 80px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-yellow);
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
-
-        /* --- Hero Section --- */
-        #home {
-            margin-top: 70px;
-            background-color: var(--secondary-white);
-            text-align: center;
-            padding: 100px 5%;
-            background-image: radial-gradient(circle at 10% 20%, rgba(255, 209, 102, 0.1) 0%, transparent 20%), 
-                              radial-gradient(circle at 90% 80%, rgba(17, 138, 178, 0.1) 0%, transparent 20%);
-        }
-
-        #home h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-text {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-
-        .hero-cta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .parent-concerns {
-            margin-top: 40px;
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: var(--soft-radius);
-            font-style: italic;
-            color: #666;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            border-left: 5px solid var(--primary-yellow);
-        }
-
-        /* --- About Section --- */
-        #about {
-            background-color: var(--accent-blue);
-            color: var(--secondary-white);
-            text-align: center;
-            border-radius: 40px;
-            margin: 20px 5%;
-        }
-
-        #about h2 {
-            color: var(--primary-yellow);
-        }
-
-        /* --- Services Section --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--secondary-white);
-            padding: 30px;
-            border-radius: var(--soft-radius);
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            transition: 0.3s;
-            border-bottom: 5px solid var(--primary-yellow);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-        }
-
-        /* --- Why Choose Us --- */
-        #why-us {
-            background-color: #E8F1F5;
-        }
-
-        .why-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .why-list {
-            list-style: none;
-            max-width: 500px;
-        }
-
-        .why-list li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--secondary-white);
-            padding: 15px 20px;
-            border-radius: var(--soft-radius);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .why-list i {
-            color: var(--primary-yellow);
-            font-size: 1.5rem;
-        }
-
-        /* --- Gallery Section --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 250px;
-            background-color: #ddd;
-            border-radius: var(--soft-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: 700;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Placeholder styles simulating images */
-        .gallery-item:nth-child(1) { background: #ffeaa7; color: #d63031; }
-        .gallery-item:nth-child(2) { background: #81ecec; color: #0984e3; }
-        .gallery-item:nth-child(3) { background: #fab1a0; color: #e17055; }
-
-        /* --- Contact Section --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-info i {
-            color: var(--accent-blue);
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 250px;
-            background-color: #e0e0e0;
-            border-radius: var(--soft-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            color: #666;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: var(--secondary-white);
-            padding: 30px;
-            border-radius: var(--soft-radius);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        input, textarea {
-            padding: 15px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary-yellow);
-        }
-
-        /* --- WhatsApp Float --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            transition: transform 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--text-dark);
-            color: var(--secondary-white);
-            text-align: center;
-            padding: 30px 5%;
-            margin-top: 40px;
-        }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--secondary-white);
-                padding: 20px;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            #home h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-child-reaching"></i> Graceful Growth
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+        <a class="brand" href="#home" aria-label="Graceful Growth Daycare home">
+            <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span>
+            <span class="brand-name">graceful<span>growth</span><small>DAYCARE &amp; EARLY LEARNING</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+            <span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+            <a href="#about">Our story</a>
+            <a href="#care">Our care</a>
+            <a href="#day">A day with us</a>
+            <a href="#contact">Find us</a>
+            <a class="nav-cta" href="#contact">Come say hello <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
     </header>
 
-    <section id="home">
-        <h1>A Safe, Loving Space for Your Child to Learn and Grow</h1>
-        <p class="hero-text">Welcoming children from 9 months and above. We provide a nurturing environment where your little ones can thrive emotionally, socially, and physically.</p>
-        
-        <div class="hero-cta">
-            <a href="tel:0705411424" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
-            <a href="#contact" class="btn btn-accent"><i class="fa-solid fa-calendar-check"></i> Book a Visit</a>
-        </div>
-
-        <div class="parent-concerns">
-            "House help left unexpectedly? Need to run errands or returning to work? We offer flexible hourly and daily childcare to give you total peace of mind, knowing your child is stimulated, safe, and loved."
-        </div>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title" style="color: var(--primary-yellow);">About Us</h2>
-        <p style="max-width: 800px; margin: auto; font-size: 1.1rem;">
-            At Graceful Growth Daycare, our mission is to provide a safe, loving, and nurturing environment that feels like a second home. We focus deeply on child development, happiness, and building a foundation of trust with our parents. Your child's well-being is our highest priority.
-        </p>
-    </section>
-
-    <section id="services">
-        <h2 class="section-title">Our Care & Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-users service-icon"></i>
-                <h3>Social Interaction</h3>
-                <p>Guided play sessions teaching sharing, empathy, and making early friendships.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-utensils service-icon"></i>
-                <h3>Feeding Support</h3>
-                <p>Assistance with healthy feeding routines in a clean, hygienic environment.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-toilet service-icon"></i>
-                <h3>Potty Training</h3>
-                <p>Patient, supportive, and consistent potty training assistance.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-heart service-icon"></i>
-                <h3>Emotional Development</h3>
-                <p>Providing a loving atmosphere that builds confidence and emotional security.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-shoe-prints service-icon"></i>
-                <h3>Walking & Play</h3>
-                <p>Safe physical activities to encourage crawling, walking, and motor skills.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-clock service-icon"></i>
-                <h3>Flexible Childcare</h3>
-                <p>Hourly and daily options tailored for busy parents and unexpected schedule changes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-us">
-        <h2 class="section-title">Why Parents Trust Us</h2>
-        <div class="why-grid">
-            <ul class="why-list">
-                <li><i class="fa-solid fa-shield-halved"></i> Safe, secure, and impeccably clean environment</li>
-                <li><i class="fa-solid fa-hand-holding-heart"></i> Loving, highly attentive caregivers</li>
-                <li><i class="fa-solid fa-business-time"></i> Flexible hours (6:00 AM – 6:00 PM)</li>
-                <li><i class="fa-solid fa-puzzle-piece"></i> Child-focused stimulation and development</li>
-                <li><i class="fa-solid fa-brain"></i> Absolute peace of mind while you work or run errands</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <h2 class="section-title">A Peek Inside</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">[Image: Bright Play Area]</div>
-            <div class="gallery-item">[Image: Educational Toys]</div>
-            <div class="gallery-item">[Image: Learning Activities]</div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-container">
-            <div class="contact-details">
-                <h3>We'd love to hear from you!</h3>
-                <p style="margin-bottom: 20px; color: #666;">Contact us to book a visit or ask about our flexible care options.</p>
-                
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-location-dot"></i> Greatwall Gardens, Phase 1, Gate B, Block 30</p>
-                    <p><i class="fa-solid fa-phone"></i> <a href="tel:0705411424">0705 411 424</a></p>
-                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:gracefulgrowth2026@gmail.com">gracefulgrowth2026@gmail.com</a></p>
-                    <p><i class="fa-solid fa-clock"></i> Monday - Saturday: 6:00 AM – 6:00 PM</p>
+    <main id="main">
+        <section class="hero" id="home">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> A little care goes a long way</p>
+                <h1>Little beginnings.<br><span>Lovely big</span> futures.</h1>
+                <p class="hero-description">A safe, happy place for your little one to play, discover, and grow — with caring hands by their side every step of the way.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#contact">Come visit us <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="phone-link" href="tel:0705411424"><span class="phone-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>Rather call?<strong>0705 411 424</strong></span></a>
                 </div>
-
-                <div class="map-placeholder">
-                    [Google Map Embed Area - Greatwall Gardens]
-                </div>
+                <div class="hero-note"><i class="fa-solid fa-heart" aria-hidden="true"></i> Welcoming little ones aged 9 months and up</div>
             </div>
+            <div class="hero-art">
+                <div class="hero-photo"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="A young child smiling outdoors" fetchpriority="high"></div>
+                <div class="photo-sticker"><span aria-hidden="true">✳</span><strong>Room to play.<br>Love to grow.</strong></div>
+                <div class="floating-note"><span class="floating-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span><span>Here when you need us<strong>6 am – 6 pm</strong></span></div>
+                <span class="hero-sparkle sparkle-one" aria-hidden="true">✳</span>
+                <span class="hero-sparkle sparkle-two" aria-hidden="true">✿</span>
+            </div>
+        </section>
 
-            <form action="#" method="POST">
-                <h3>Send a Message</h3>
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="text" placeholder="Child's Age (e.g., 2 years)">
-                <textarea rows="5" placeholder="How can we help you?" required></textarea>
-                <button type="submit" class="btn btn-accent">Send Message</button>
+        <div class="welcome-strip"><span>Small steps</span><i class="fa-solid fa-star" aria-hidden="true"></i><span>Big imaginations</span><i class="fa-solid fa-star" aria-hidden="true"></i><span>Happy little hearts</span><i class="fa-solid fa-star" aria-hidden="true"></i><span>Room to grow</span></div>
+
+        <section class="story section-pad" id="about">
+            <div class="story-image reveal">
+                <img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="A joyful moment shared with a little one" loading="lazy">
+                <div class="image-caption"><i class="fa-solid fa-heart" aria-hidden="true"></i> A second home for your little one</div>
+            </div>
+            <div class="story-copy reveal">
+                <p class="eyebrow">A warm welcome, every day</p>
+                <h2>Care that feels<br>like <span>family.</span></h2>
+                <p>Leaving your little one in someone else's care is a big thing. We get that. At Graceful Growth, children are welcomed into a safe, loving space where they can feel at home, make friends, and discover something new every day.</p>
+                <p>We care for children from 9 months old, with flexible hourly and daily options to make life a little easier for busy families.</p>
+                <a class="text-link" href="#contact">Get to know us <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <section class="care section-pad" id="care">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Lots of love in the little things</p>
+                <h2>Every day, a little more <span>confident.</span></h2>
+                <p>Thoughtful care and playful moments that help your child feel good, grow, and belong.</p>
+            </div>
+            <div class="care-grid">
+                <article class="care-card reveal"><span class="care-icon icon-peach"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span><h3>Friends &amp; play</h3><p>Gentle, guided play gives little ones room to share, connect, and make their first friends.</p></article>
+                <article class="care-card reveal"><span class="care-icon icon-lilac"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span><h3>Feeding support</h3><p>Patient help with feeding routines in a clean, caring, and hygienic environment.</p></article>
+                <article class="care-card reveal"><span class="care-icon icon-yellow"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span><h3>Growing independence</h3><p>Encouraging, consistent support for potty training and all those little milestones.</p></article>
+                <article class="care-card reveal"><span class="care-icon icon-mint"><i class="fa-solid fa-heart" aria-hidden="true"></i></span><h3>Big feelings, gently held</h3><p>A steady, loving presence helps children build confidence and feel secure.</p></article>
+                <article class="care-card reveal"><span class="care-icon icon-blue"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></span><h3>Move &amp; explore</h3><p>Safe opportunities to wiggle, walk, play, and practice new motor skills.</p></article>
+                <article class="care-card reveal"><span class="care-icon icon-rose"><i class="fa-solid fa-clock" aria-hidden="true"></i></span><h3>Care that fits your day</h3><p>Flexible hourly and daily options for busy schedules and the unexpected.</p></article>
+            </div>
+        </section>
+
+        <section class="day section-pad" id="day">
+            <div class="day-copy reveal">
+                <p class="eyebrow">A day full of little discoveries</p>
+                <h2>Safe, seen, and<br><span>free to be little.</span></h2>
+                <p>From a warm hello in the morning to stories, play, and new friendships, your child gets caring attention in a clean, secure space.</p>
+                <ul class="promise-list">
+                    <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Loving, attentive caregivers</li>
+                    <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Clean, secure surroundings</li>
+                    <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Play that encourages learning</li>
+                    <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Open Monday to Saturday, 6 am–6 pm</li>
+                </ul>
+                <a class="button button-light" href="#contact">Let's plan a visit <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="day-photo reveal"><img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="A child enjoying time outdoors" loading="lazy"><span class="day-photo-label">Happy hearts start here <i class="fa-solid fa-sparkles" aria-hidden="true"></i></span></div>
+        </section>
+
+        <section class="visit section-pad" id="contact">
+            <div class="visit-intro reveal">
+                <p class="eyebrow">We'd love to meet you</p>
+                <h2>Come for a look.<br><span>Stay for a hello.</span></h2>
+                <p>Questions, a visit, or just want to know if we're a good fit? Drop us a note or give us a call. We'd be happy to chat.</p>
+                <div class="contact-list">
+                    <a href="tel:0705411424"><span><i class="fa-solid fa-phone" aria-hidden="true"></i></span><span>Give us a ring<strong>0705 411 424</strong></span></a>
+                    <a href="mailto:gracefulgrowth2026@gmail.com"><span><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><span>Send us a note<strong>gracefulgrowth2026@gmail.com</strong></span></a>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Greatwall+Gardens+Phase+1+Gate+B+Block+30" target="_blank" rel="noopener noreferrer"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span>Find our little corner<strong>Greatwall Gardens, Phase 1, Gate B, Block 30 <i class="fa-solid fa-arrow-up-right-from-square map-arrow" aria-hidden="true"></i></strong></span></a>
+                </div>
+                <p class="hours-note"><i class="fa-regular fa-clock" aria-hidden="true"></i> Monday–Saturday, 6:00 am–6:00 pm</p>
+            </div>
+            <form class="contact-form reveal" id="contact-form">
+                <div class="form-heading"><span class="form-icon"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i></span><div><h3>Let's start a conversation</h3><p>Tell us a little about what you need.</p></div></div>
+                <label for="parent-name">Your name</label>
+                <input id="parent-name" name="name" type="text" placeholder="e.g. Alex" autocomplete="name" required>
+                <label for="parent-phone">Phone number</label>
+                <input id="parent-phone" name="phone" type="tel" placeholder="The best number to reach you" autocomplete="tel" required>
+                <label for="child-age">Your child's age <span>(optional)</span></label>
+                <input id="child-age" name="childAge" type="text" placeholder="e.g. 18 months">
+                <label for="parent-message">How can we help?</label>
+                <textarea id="parent-message" name="message" rows="4" placeholder="Ask us a question or tell us when you'd like to visit..." required></textarea>
+                <button class="button button-primary form-submit" type="submit">Write us an email <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                <p class="form-note" id="form-status" role="status" aria-live="polite">Your email app will open with your message ready to send.</p>
             </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <a href="https://wa.me/254705411424" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <p>&copy; 2026 Graceful Growth Daycare. All rights reserved.</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">A Safe, Loving Space for Your Child to Learn and Grow.</p>
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="#home" aria-label="Graceful Growth Daycare home"><span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span><span class="brand-name">graceful<span>growth</span><small>DAYCARE &amp; EARLY LEARNING</small></span></a>
+        <p>A safe, loving space for your little one to learn and grow.</p>
+        <a class="footer-top" href="#top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        <div class="footer-bottom"><span>&copy; <span id="current-year">2026</span> Graceful Growth Daycare. Made with <i class="fa-solid fa-heart" aria-label="love"></i>.</span><a href="https://wa.me/254705411424" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp</a></div>
     </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
