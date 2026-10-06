@@ -36,6 +36,12 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+        closeMenu();
+    }
+});
+
 const updateHeader = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 12);
 };
@@ -45,6 +51,25 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 
 const revealItems = document.querySelectorAll(".reveal");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const revealVisibleItems = () => {
+    revealItems.forEach((item) => {
+        if (item.classList.contains("is-visible")) {
+            return;
+        }
+
+        const bounds = item.getBoundingClientRect();
+        if (bounds.top < window.innerHeight * 0.9 && bounds.bottom > 0) {
+            item.classList.add("is-visible");
+        }
+    });
+};
+
+if (!reduceMotion) {
+    revealVisibleItems();
+    window.addEventListener("scroll", revealVisibleItems, { passive: true });
+    window.addEventListener("resize", revealVisibleItems);
+}
 
 if ("IntersectionObserver" in window && !reduceMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -56,10 +81,45 @@ if ("IntersectionObserver" in window && !reduceMotion) {
         });
     }, { threshold: 0.12 });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
+    revealItems.forEach((item) => {
+        if (!item.classList.contains("is-visible")) {
+            revealObserver.observe(item);
+        }
+    });
 } else {
     revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+const galleryFilters = document.querySelectorAll(".filter-button");
+const galleryCards = document.querySelectorAll(".gallery-card");
+
+galleryFilters.forEach((button) => {
+    button.addEventListener("click", () => {
+        const selectedCategory = button.dataset.filter;
+
+        galleryFilters.forEach((filter) => {
+            const isSelected = filter === button;
+            filter.classList.toggle("is-active", isSelected);
+            filter.setAttribute("aria-pressed", String(isSelected));
+        });
+
+        galleryCards.forEach((card) => {
+            card.hidden = selectedCategory !== "all" && card.dataset.category !== selectedCategory;
+        });
+    });
+});
+
+document.querySelectorAll(".faq-item").forEach((item) => {
+    item.addEventListener("toggle", () => {
+        if (item.open) {
+            document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                if (otherItem !== item) {
+                    otherItem.open = false;
+                }
+            });
+        }
+    });
+});
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
